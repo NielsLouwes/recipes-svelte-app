@@ -1,7 +1,5 @@
 <script>
-	import Counter from './Counter.svelte';
-	import welcome from '$lib/images/svelte-welcome.webp';
-	import welcome_fallback from '$lib/images/svelte-welcome.png';
+	import RecipeCard from '../components/RecipeCard.svelte';
 	import recipes from '../data/recipes.json';
 
 	const recipesData = recipes['recipes'];
@@ -14,7 +12,9 @@
 </svelte:head>
 
 <section>
-	<p>{recipesData.length}</p>
+	{#each recipesData as { name, description, cuisine }}
+		<RecipeCard {name} {description} {cuisine} />
+	{/each}
 </section>
 
 <style>
@@ -24,9 +24,5 @@
 		justify-content: center;
 		align-items: center;
 		flex: 0.6;
-	}
-
-	h1 {
-		width: 100%;
 	}
 </style>

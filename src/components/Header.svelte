@@ -18,7 +18,9 @@
 <style>
 	header {
 		display: flex;
-		justify-content: space-between;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 	}
 
 	nav {
