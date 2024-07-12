@@ -12,13 +12,16 @@
 
 <style>
 	.card {
-		border: 1px solid white;
 		border-radius: 15px;
 		padding: 10px 15px;
 		border: 3px solid rgb(36, 34, 36);
 		color: rgb(36, 34, 36);
 		margin-bottom: 15px;
 		width: 350px;
+
+		@media (width > 768px) {
+			width: 650px;
+		}
 	}
 
 	.card:hover {

@@ -22,7 +22,7 @@
 
 body {
 	margin: auto;
-	padding: 1rem;
+	/* padding: 1rem; */
 	width: 800px;
 	max-width: calc(100% - 2rem);
 	color: black;
