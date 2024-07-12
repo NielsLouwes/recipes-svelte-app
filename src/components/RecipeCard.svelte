@@ -1,14 +1,12 @@
 <script>
-	export let name;
-	export let description;
-	export let cuisine;
+	export let recipe;
 </script>
 
-<a href="/">
+<a href="/recipes/{recipe.name}">
 	<div class="card">
-		<h3>{name}</h3>
-		<p>{description}</p>
-		<p><strong class="strong">Cuisine:</strong> {cuisine}</p>
+		<h3>{recipe.name}</h3>
+		<p>{recipe.description}</p>
+		<p><strong class="strong">Cuisine:</strong> {recipe.cuisine}</p>
 	</div>
 </a>
 
@@ -28,7 +26,7 @@
 	}
 
 	.strong {
-		color: #9853ed;
+		color: var(--color-theme-1);
 	}
 
 	a {

@@ -3,7 +3,6 @@
 	import recipes from '../data/recipes.json';
 
 	const recipesData = recipes['recipes'];
-	console.log('recipesData', recipesData);
 </script>
 
 <svelte:head>
@@ -12,8 +11,8 @@
 </svelte:head>
 
 <section>
-	{#each recipesData as { name, description, cuisine }}
-		<RecipeCard {name} {description} {cuisine} />
+	{#each recipesData as recipe}
+		<RecipeCard {recipe} />
 	{/each}
 </section>
 
