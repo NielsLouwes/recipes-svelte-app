@@ -1,19 +1,30 @@
 <script>
+	import { ingredients } from '../../../stores/ingredient-store';
 	export let data;
 	const { recipe } = data;
 
 	const totalCookingTime = (recipe) => {
 		return Number(recipe['cooking-time'] || 0) + Number(recipe['prep-time'] || 0);
 	};
+
+	const addIngredients = () => {
+		ingredients.update((currentIngredients) => {
+			const updatedIngredients = [...currentIngredients, ...recipe.ingredients];
+			return updatedIngredients;
+		});
+	};
 </script>
 
 <h1>{recipe.name}</h1>
 <p>{recipe.description}</p>
-<p><strong>Cuisine:</strong> {recipe.cuisine}</p>
+<p><strong>Cuisine:</strong> {recipe?.cuisine}</p>
+
 <div class="container stats">
 	<div>
 		<p class="heading">Cooking time</p>
-		<p>{recipe['cooking-time']} mins</p>
+		{#if recipe['cooking-time']}
+			<p>{recipe['cooking-time']} mins</p>
+		{/if}
 	</div>
 	<div>
 		<p class="heading">Prep time</p>
@@ -38,6 +49,7 @@
 </div>
 <div class="container">
 	<h2>Ingredients</h2>
+	<button on:click={addIngredients}>Add</button>
 	<ul>
 		{#each recipe.ingredients as ingredient}
 			<li>{ingredient}</li>
