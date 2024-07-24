@@ -1,5 +1,6 @@
 <script>
 	import { ingredients } from '../../../stores/ingredient-store';
+
 	export let data;
 	const { recipe } = data;
 
@@ -9,6 +10,7 @@
 
 	const addIngredients = () => {
 		ingredients.update((currentIngredients) => {
+			console.log('currentIngredients', currentIngredients);
 			const updatedIngredients = [...currentIngredients, ...recipe.ingredients];
 			return updatedIngredients;
 		});
@@ -48,8 +50,10 @@
 	</div>
 </div>
 <div class="container">
-	<h2>Ingredients</h2>
-	<button on:click={addIngredients}>Add</button>
+	<div class="ingredients-section">
+		<h2>Ingredients</h2>
+		<button class="add-btn" on:click={addIngredients}>Add</button>
+	</div>
 	<ul>
 		{#each recipe.ingredients as ingredient}
 			<li>{ingredient}</li>
@@ -96,5 +100,19 @@
 
 	.heading {
 		font-weight: bolder;
+	}
+
+	.ingredients-section {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.add-btn {
+		background: black;
+		color: white;
+		cursor: pointer;
+		padding: 0 20px;
+		border-radius: 9px;
+		font-size: 1.5rem;
 	}
 </style>
