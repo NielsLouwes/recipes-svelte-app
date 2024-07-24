@@ -4,10 +4,10 @@
 </script>
 
 <div class="ingredient-container">
-	<p>{ingredient}</p>
+	<p class="ingredient">{ingredient}</p>
 	<div class="actions">
 		<p class="action">edit</p>
-		<button on:click={() => removeIngredient(ingredient)} class="action">remove</button>
+		<p on:click={() => removeIngredient(ingredient)} class="action">remove</p>
 	</div>
 </div>
 
@@ -21,6 +21,10 @@
 		border-radius: 8px;
 		margin: 5px;
 		padding: 5px 15px;
+	}
+
+	.ingredient {
+		width: 70%;
 	}
 
 	.ingredient-container:hover {
@@ -40,10 +44,8 @@
 		cursor: pointer;
 	}
 
-	button {
-		background-color: transparent;
-		border: none;
-		padding: 0;
-		cursor: pointer;
+	.action:hover {
+		background: purple;
+		color: white;
 	}
 </style>

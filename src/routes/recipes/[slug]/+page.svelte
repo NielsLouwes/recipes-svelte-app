@@ -1,4 +1,5 @@
 <script>
+	import Swal from 'sweetalert2';
 	import { ingredients } from '../../../stores/ingredient-store';
 
 	export let data;
@@ -10,8 +11,14 @@
 
 	const addIngredients = () => {
 		ingredients.update((currentIngredients) => {
-			console.log('currentIngredients', currentIngredients);
 			const updatedIngredients = [...currentIngredients, ...recipe.ingredients];
+			Swal.fire({
+				title: 'Success!',
+				text: 'Ingredients added successfully',
+				icon: 'success',
+				timer: 1500,
+				showConfirmButton: false
+			});
 			return updatedIngredients;
 		});
 	};
