@@ -16,15 +16,25 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		width: 75%;
+		flex-direction: column;
+
 		border: 1px solid black;
 		border-radius: 8px;
-		margin: 5px;
-		padding: 5px 15px;
+		margin-bottom: 5px;
+
+		@media (width > 768px) {
+			width: 75%;
+			flex-direction: row;
+			padding: 5px 15px;
+		}
 	}
 
 	.ingredient {
-		width: 70%;
+		width: 90%;
+
+		@media (width > 768px) {
+			width: 70%;
+		}
 	}
 
 	.ingredient-container:hover {

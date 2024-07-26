@@ -1,11 +1,11 @@
-<script>
+<script lang="ts">
 	import { ingredients } from '../stores/ingredient-store';
 
 	let newShoppingItem = '';
 
 	const addIngredient = () => {
 		if (newShoppingItem.trim()) {
-			ingredients.update((currentIngredients) => {
+			ingredients.update((currentIngredients: string[]) => {
 				return [...currentIngredients, newShoppingItem];
 			});
 

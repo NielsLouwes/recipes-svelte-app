@@ -1,11 +1,11 @@
-<script>
+<script lang="ts">
 	import Ingredient from '../../components/Ingredient.svelte';
 	import InputForm from '../../components/InputForm.svelte';
 	import { ingredients } from '../../stores/ingredient-store';
 
 	console.log('$ingredients', $ingredients);
 
-	const removeIngredient = (ingredient) => {
+	const removeIngredient = (ingredient: string) => {
 		ingredients.update((currentIngredients) => {
 			const updatedIngredients = currentIngredients.filter(
 				(currentIngredient) => currentIngredient !== ingredient
@@ -38,9 +38,10 @@
 	.shopping-list {
 		border: 3px solid black;
 		border-radius: 15px;
-		padding: 15px;
 		border-top: 12px solid purple;
 		display: flex;
 		flex-direction: column;
+		align-items: center;
+		padding: 10px;
 	}
 </style>
