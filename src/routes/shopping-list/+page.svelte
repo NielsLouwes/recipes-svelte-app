@@ -1,10 +1,9 @@
 <script>
 	import Ingredient from '../../components/Ingredient.svelte';
+	import InputForm from '../../components/InputForm.svelte';
 	import { ingredients } from '../../stores/ingredient-store';
 
 	console.log('$ingredients', $ingredients);
-
-	let newShoppingItem = '';
 
 	const removeIngredient = (ingredient) => {
 		ingredients.update((currentIngredients) => {
@@ -14,18 +13,6 @@
 			return updatedIngredients;
 		});
 	};
-
-	const addIngredient = () => {
-		if (newShoppingItem.trim()) {
-			ingredients.update((currentIngredients) => {
-				return [...currentIngredients, newShoppingItem];
-			});
-
-			newShoppingItem = '';
-		}
-	};
-
-	console.log('newShoppingItem', newShoppingItem);
 </script>
 
 <svelte:head>
@@ -35,10 +22,7 @@
 
 <div class="shopping-list">
 	<h1>Shopping List</h1>
-	<form action="submit" on:submit|preventDefault={addIngredient}>
-		<label for="input">Add item: </label>
-		<input id="input" type="text" bind:value={newShoppingItem} />
-	</form>
+	<InputForm />
 	{#if $ingredients.length === 0}
 		<p>No ingredients added yet</p>
 	{:else}
