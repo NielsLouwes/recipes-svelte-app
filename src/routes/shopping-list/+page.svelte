@@ -4,6 +4,8 @@
 
 	console.log('$ingredients', $ingredients);
 
+	let newShoppingItem = '';
+
 	const removeIngredient = (ingredient) => {
 		ingredients.update((currentIngredients) => {
 			const updatedIngredients = currentIngredients.filter(
@@ -12,6 +14,18 @@
 			return updatedIngredients;
 		});
 	};
+
+	const addIngredient = () => {
+		if (newShoppingItem.trim()) {
+			ingredients.update((currentIngredients) => {
+				return [...currentIngredients, newShoppingItem];
+			});
+
+			newShoppingItem = '';
+		}
+	};
+
+	console.log('newShoppingItem', newShoppingItem);
 </script>
 
 <svelte:head>
@@ -21,6 +35,10 @@
 
 <div class="shopping-list">
 	<h1>Shopping List</h1>
+	<form action="submit" on:submit|preventDefault={addIngredient}>
+		<label for="input">Add item: </label>
+		<input id="input" type="text" bind:value={newShoppingItem} />
+	</form>
 	{#if $ingredients.length === 0}
 		<p>No ingredients added yet</p>
 	{:else}
@@ -38,7 +56,6 @@
 		border-radius: 15px;
 		padding: 15px;
 		border-top: 12px solid purple;
-		margin-top: 30px;
 		display: flex;
 		flex-direction: column;
 	}

@@ -59,7 +59,7 @@
 <div class="container">
 	<div class="ingredients-section">
 		<h2>Ingredients</h2>
-		<button class="add-btn" on:click={addIngredients}>Add</button>
+		<p class="add-btn" on:click={addIngredients}>Add</p>
 	</div>
 	<ul>
 		{#each recipe.ingredients as ingredient}
@@ -112,13 +112,14 @@
 	.ingredients-section {
 		display: flex;
 		justify-content: space-between;
+		align-items: center;
 	}
 
 	.add-btn {
 		background: black;
 		color: white;
 		cursor: pointer;
-		padding: 0 20px;
+		padding: 10px 20px;
 		border-radius: 9px;
 		font-size: 1.5rem;
 	}
