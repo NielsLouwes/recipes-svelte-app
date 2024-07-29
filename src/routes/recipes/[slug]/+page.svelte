@@ -1,6 +1,7 @@
 <script>
 	import Swal from 'sweetalert2';
 	import { ingredients } from '../../../stores/ingredient-store';
+	import WakeLockToggle from '../../../components/WakeLockToggle.svelte';
 
 	export let data;
 	const { recipe } = data;
@@ -68,7 +69,14 @@
 	</ul>
 </div>
 <div class="container">
-	<h2>Directions</h2>
+	<div class="title-container">
+		<h2>Directions</h2>
+		<div>
+			<span>Screen lock</span>
+			<WakeLockToggle />
+		</div>
+	</div>
+
 	<ol>
 		{#each recipe.instructions as instruction}
 			<li>{instruction}</li>
@@ -83,6 +91,15 @@
 		padding: 15px;
 		border-top: 12px solid purple;
 		margin-top: 30px;
+	}
+
+	.title-container {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+	span {
+		font-size: 0.9rem;
 	}
 
 	.stats {
@@ -121,6 +138,6 @@
 		cursor: pointer;
 		padding: 10px 20px;
 		border-radius: 9px;
-		font-size: 1.5rem;
+		font-size: 1rem;
 	}
 </style>
