@@ -17,7 +17,7 @@
 		justify-content: space-between;
 		align-items: center;
 		flex-direction: column;
-
+		min-width: 350px;
 		border: 1px solid black;
 		border-radius: 8px;
 		margin-bottom: 5px;
