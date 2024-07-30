@@ -40,6 +40,8 @@
 		<p class="heading">Prep time</p>
 		{#if recipe['prep-time']}
 			<p>{recipe['prep-time']} mins</p>
+		{:else}
+			<p>-</p>
 		{/if}
 	</div>
 	<div>
