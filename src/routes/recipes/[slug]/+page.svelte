@@ -1,12 +1,13 @@
-<script>
+<script lang="ts">
 	import Swal from 'sweetalert2';
 	import { ingredients } from '../../../stores/ingredient-store';
 	import WakeLockToggle from '../../../components/WakeLockToggle.svelte';
+	import type { Recipe } from '../../../types/recipe';
 
-	export let data;
+	export let data: { recipe: Recipe };
 	const { recipe } = data;
 
-	const totalCookingTime = (recipe) => {
+	const totalCookingTime = (recipe: Recipe) => {
 		return Number(recipe['cooking-time'] || 0) + Number(recipe['prep-time'] || 0);
 	};
 
