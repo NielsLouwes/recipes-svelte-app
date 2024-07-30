@@ -3,10 +3,10 @@ export type Recipe = {
 	name: string;
 	description: string;
 	ingredients: string[];
-	nutrition: never[];
-	spices: never[];
+	nutrition: string[];
+	spices: string[];
 	instructions: string[];
-	tips: never[];
+	tips: string[];
 	'prep-time': null;
 	'cooking-time': number;
 	serves: string;
