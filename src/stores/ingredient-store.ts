@@ -1,3 +1,8 @@
 import { writable } from 'svelte/store';
 
-export const ingredients = writable<string[]>([]);
+export type Ingredient = {
+	id: number;
+	recipeName: string;
+};
+
+export const ingredients = writable<Ingredient[]>([]);

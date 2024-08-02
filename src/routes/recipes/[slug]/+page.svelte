@@ -3,6 +3,7 @@
 	import { ingredients } from '../../../stores/ingredient-store';
 	import WakeLockToggle from '../../../components/WakeLockToggle.svelte';
 	import type { Recipe } from '../../../types/recipe';
+	import { text } from '@sveltejs/kit';
 
 	export let data: { recipe: Recipe };
 	const { recipe } = data;
@@ -13,7 +14,10 @@
 
 	const addIngredients = () => {
 		ingredients.update((currentIngredients) => {
-			const updatedIngredients = [...currentIngredients, ...recipe.ingredients];
+			const updatedIngredients = [
+				...currentIngredients,
+				{ recipeName: recipe.name, ingredients: recipe.ingredients }
+			];
 			Swal.fire({
 				title: 'Success!',
 				text: 'Ingredients added successfully',

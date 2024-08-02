@@ -1,15 +1,24 @@
 <script>
 	export let ingredient;
 	export let removeIngredient;
+
+	console.log('ingredient', ingredient);
+
+	const x = ingredient.ingredients.map((item) => item);
+	console.log('x', x);
+
+	// create ingredient Item that handles remove and edit, another child component.
 </script>
 
-<div class="ingredient-container">
-	<p class="ingredient">{ingredient}</p>
-	<div class="actions">
-		<p class="action">edit</p>
-		<p on:click={() => removeIngredient(ingredient)} class="action">remove</p>
+<section>
+	<div class="ingredient-container">
+		<p class="ingredient">{x}</p>
+		<div class="actions">
+			<p class="action">edit</p>
+			<p on:click={() => removeIngredient(ingredient)} class="action">remove</p>
+		</div>
 	</div>
-</div>
+</section>
 
 <style>
 	.ingredient-container {

@@ -1,3 +1,5 @@
+import type { Ingredient } from '../stores/ingredient-store';
+
 export type Recipe = {
 	id: number;
 	name: string;
@@ -5,7 +7,7 @@ export type Recipe = {
 	ingredients: string[];
 	nutrition: string[];
 	spices: string[];
-	instructions: string[];
+	instructions: Ingredient[];
 	tips: string[];
 	'prep-time': null;
 	'cooking-time': number;

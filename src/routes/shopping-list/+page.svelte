@@ -10,6 +10,7 @@
 			const updatedIngredients = currentIngredients.filter(
 				(currentIngredient) => currentIngredient !== ingredient
 			);
+
 			return updatedIngredients;
 		});
 	};
@@ -23,11 +24,13 @@
 <div class="shopping-list">
 	<h1>Shopping List</h1>
 	<InputForm />
+
 	{#if $ingredients.length === 0}
 		<p>No ingredients added yet</p>
 	{:else}
 		<div>
 			{#each $ingredients as ingredient}
+				<p>{ingredient.recipeName}</p>
 				<Ingredient {ingredient} {removeIngredient} />
 			{/each}
 		</div>
