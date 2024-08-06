@@ -1,14 +1,14 @@
 <script lang="ts">
+	import CrossIcon from '../icons/CrossIcon.svelte';
+
 	export let ingredientItem: string;
 	export let removeIngredient;
 </script>
 
 <div class="ingredient-container">
 	<p>{ingredientItem}</p>
-	<div class="actions">
-		<p class="action">edit</p>
-		<p on:click={() => removeIngredient(ingredient)} class="action">remove</p>
-	</div>
+	<div class="actions"></div>
+	<CrossIcon on:click={() => removeIngredient(ingredient)} />
 </div>
 
 <style>
@@ -32,6 +32,10 @@
 	.ingredient-container:hover {
 		background: lightgrey;
 		cursor: pointer;
+	}
+
+	p {
+		font-size: 1rem;
 	}
 
 	.actions {

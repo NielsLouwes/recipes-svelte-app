@@ -15,3 +15,11 @@
 		{/each}
 	</div>
 </section>
+
+<style>
+	h2 {
+		color: var(--color-theme-1);
+		font-weight: bolder;
+		font-size: 1.2rem;
+	}
+</style>
