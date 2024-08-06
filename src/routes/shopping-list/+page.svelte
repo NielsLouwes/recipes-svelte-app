@@ -1,5 +1,6 @@
 <script lang="ts">
-	import Ingredient from '../../components/Ingredient.svelte';
+	import IngredientList from '../../components/IngredientList.svelte';
+	import Ingredient from '../../components/IngredientList.svelte';
 	import InputForm from '../../components/InputForm.svelte';
 	import { ingredients } from '../../stores/ingredient-store';
 
@@ -30,8 +31,7 @@
 	{:else}
 		<div>
 			{#each $ingredients as ingredient}
-				<p>{ingredient.recipeName}</p>
-				<Ingredient {ingredient} {removeIngredient} />
+				<IngredientList {ingredient} {removeIngredient} />
 			{/each}
 		</div>
 	{/if}

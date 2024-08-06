@@ -1,24 +1,15 @@
-<script>
-	export let ingredient;
+<script lang="ts">
+	export let ingredientItem: string;
 	export let removeIngredient;
-
-	console.log('ingredient', ingredient);
-
-	const x = ingredient.ingredients.map((item) => item);
-	console.log('x', x);
-
-	// create ingredient Item that handles remove and edit, another child component.
 </script>
 
-<section>
-	<div class="ingredient-container">
-		<p class="ingredient">{x}</p>
-		<div class="actions">
-			<p class="action">edit</p>
-			<p on:click={() => removeIngredient(ingredient)} class="action">remove</p>
-		</div>
+<div class="ingredient-container">
+	<p>{ingredientItem}</p>
+	<div class="actions">
+		<p class="action">edit</p>
+		<p on:click={() => removeIngredient(ingredient)} class="action">remove</p>
 	</div>
-</section>
+</div>
 
 <style>
 	.ingredient-container {
@@ -35,14 +26,6 @@
 			width: 75%;
 			flex-direction: row;
 			padding: 5px 15px;
-		}
-	}
-
-	.ingredient {
-		width: 90%;
-
-		@media (width > 768px) {
-			width: 70%;
 		}
 	}
 
